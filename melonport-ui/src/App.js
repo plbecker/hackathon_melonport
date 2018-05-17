@@ -30,7 +30,11 @@ class App extends Component {
             style={{ 
                 height: '500px', 
                     width: '600px' }}>
-            <AgGridReact columnDefs={this.state.columnDefs} rowData={this.state.rowData}>
+            <AgGridReact 
+                enableSorting={true}
+                enableFilter={true}
+                columnDefs={this.state.columnDefs} 
+                rowData={this.state.rowData}>
             </AgGridReact>
             </div>
         );
