@@ -12,24 +12,26 @@ class App extends Component {
 
         this.state = {
             columnDefs: [
-                {headerName: "Make", field: "make"},
-                {headerName: "Model", field: "model"},
-                {headerName: "Price", field: "price"}
-
-            ],
-            rowData: [
-                {make: "Toyota", model: "Celica", price: 35000},
-                {make: "Ford", model: "Mondeo", price: 32000},
-                {make: "Porsche", model: "Boxter", price: 72000}
+                {headerName: "Address", field: "address"},
+                {headerName: "Name", field: "name"},
+                {headerName: "Price", field: "sharePrice"},
+                {headerName: "Inception", field: "inception"}
             ]
         }
     }
+
+    componentDidMount(){
+        fetch('https://ranking.melon.fund/')
+            .then(result => result.json())
+            .then(rowData => this.setState({rowData}))
+    }
+
     render() {
         return (
             <div  className="ag-theme-balham"
             style={{ 
                 height: '500px', 
-                    width: '600px' }}>
+                width: '600px' }}>
             <AgGridReact 
                 enableSorting={true}
                 enableFilter={true}
