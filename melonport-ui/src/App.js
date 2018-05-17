@@ -30,8 +30,10 @@ class App extends Component {
         return (
             <div  className="ag-theme-balham"
             style={{ 
-                height: '500px', 
-                width: '600px' }}>
+                height: '1200px', 
+                width: '80%',
+                margin: '0 auto'
+            }}>
             <AgGridReact 
                 enableSorting={true}
                 enableFilter={true}
