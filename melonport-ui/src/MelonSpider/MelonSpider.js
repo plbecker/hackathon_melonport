@@ -9,7 +9,6 @@ export default class MelonSpider extends Component {
 
         this.data = props.data;
         this.chartOptions = props.chartOptions;
-        console.log(this.data);
     }
 
     render() {
