@@ -13,7 +13,7 @@ export default class MelonSpider extends Component {
     }
 
     render() {
-        return <div className="spider">
+        return <div>
             <RadarChart data={this.data} options={this.chartOptions} width="350" height="350"/>
         </div>
     }
