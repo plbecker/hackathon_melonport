@@ -82,6 +82,9 @@ class App extends Component {
                 enableFilter={true}
                 enableColResizes={true}
                 rowMultiSelectWithClick={true}
+                onGridReady={this.state.onGridReady}
+                onGridReady={this.onGridReady.bind(this)}
+
 //                columnDefs={this.state.columnDefs} 
                 rowData={this.state.rowData}>
 
