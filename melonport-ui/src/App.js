@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
+import PropTypes from 'prop-types';
+
 
 import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -10,6 +12,10 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
 import SnackbarContent from '@material-ui/core/SnackbarContent';
+import SwipeableViews from 'react-swipeable-views';
+import AppBar from '@material-ui/core/AppBar';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
 
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
@@ -46,19 +52,40 @@ const theme = createMuiTheme({
           main: '#fff',
         },
         secondary: {
-          light: '#0066ff',
-          main: '#0044ff',
-          contrastText: '#ffcc00',
+            main: '#222',
         },
   },
 });
 
+function TabContainer({ children, dir }) {
+  return (
+    <Typography component="div" dir={dir} style={{ padding: 8 * 3 }}>
+      {children}
+    </Typography>
+  );
+}
+
+TabContainer.propTypes = {
+  children: PropTypes.node.isRequired,
+  dir: PropTypes.string.isRequired,
+};
 
 class App extends Component {
     constructor(props) {
         super(props);
 
-}
+    }
+    state = {
+        value: 0,
+    };
+
+    handleChange = (event, value) => {
+        this.setState({ value });
+    };
+
+    handleChangeIndex = index => {
+        this.setState({ value: index });
+    };
 
     render() {
         return (
@@ -80,13 +107,32 @@ class App extends Component {
                     </Card>
                 </div>
                 <div style={{width:'400px'}}>
-                    <Card className={'spider-card'}>
-                        <CardContent>
-                            <div style={{width:'100%'}}>
-                                <MelonSpiderComponent />
+                            <div className={'spider-card'} style={{width:'100%'}}>
+                                <AppBar position="static" color="primary">
+                                    <SwipeableViews
+                                      axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+                                      index={this.state.value}
+                                      onChangeIndex={this.handleChangeIndex}
+                                    style={{backgroundColor:"#fff"}}
+                                    >
+                              <TabContainer dir={theme.direction}>
+                                           <MelonSpiderComponent />
+ 
+                                </TabContainer>
+                              <TabContainer dir={theme.direction}>Item Two</TabContainer>
+                            </SwipeableViews>
+                              <Tabs
+                                value={this.state.value}
+                                onChange={this.handleChange}
+                                indicatorColor="secondary"
+                                textColor="secondary"
+                                fullWidth
+                              >
+                                <Tab label="Strategy" />
+                                <Tab label="SharePrice" />
+                              </Tabs>
+                            </AppBar>
                             </div>
-                        </CardContent>
-                    </Card> 
                 </div>
             </div>
         </MuiThemeProvider>
@@ -94,4 +140,10 @@ class App extends Component {
     }
 }
 
+App.propTypes = {
+  classes: PropTypes.object.isRequired,
+  theme: PropTypes.object.isRequired,
+};
+
 export default App;
+
