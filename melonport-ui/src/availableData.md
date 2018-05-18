@@ -31,7 +31,7 @@ Calculated:
 * Diversification (risk)
 * Max drawdown
 * Social responsibility (SRI)
-* Social governmnet (ESG RGT) principal of responsible investment (PRI)
+* Social government (ESG RGT) principal of responsible investment (PRI)
     * Carbon footprint
     * ...
 * Index outperfomance

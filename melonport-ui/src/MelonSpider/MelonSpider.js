@@ -19,6 +19,7 @@ export default class MelonSpider extends Component {
                 padding={70}
                 domainMax={100}
                 highlighted={null}
+                /*
                 onHover={(point) => {
                     if (point) {
                         console.log('hovered over a data point');
@@ -26,38 +27,39 @@ export default class MelonSpider extends Component {
                         console.log('not over anything');
                     }
                 }}
+                */
                 data={{
                     variables: [
-                        { key: 'resilience', label: 'Resilience' },
-                        { key: 'strength', label: 'Strength' },
-                        { key: 'adaptability', label: 'Adaptability' },
-                        { key: 'creativity', label: 'Creativity' },
-                        { key: 'openness', label: 'Open to Change' },
-                        { key: 'confidence', label: 'Confidence' },
+                        { key: 'vol', label: 'Volatility' },
+                        { key: 'div', label: 'Diversification' },
+                        { key: 'max', label: 'Max Drawdown' },
+                        { key: 'sri', label: 'Social Responsibility' },
+                        { key: 'lon', label: 'Long term investment' },
+                        { key: 'ind', label: 'Index outperformance' },
                     ],
                     sets: [
                         {
                             key: 'me',
                             label: 'My Scores',
                             values: {
-                                resilience: 40,
-                                strength: 60,
-                                adaptability: 70,
-                                creativity: 20,
-                                openness: 80,
-                                confidence: 10,
+                                vol: 40,
+                                div: 60,
+                                max: 70,
+                                sri: 20,
+                                lon: 80,
+                                ind: 10,
                             },
                         },
                         {
                             key: 'everyone',
                             label: 'Everyone',
                             values: {
-                                resilience: 100,
-                                strength: 80,
-                                adaptability: 60,
-                                creativity: 40,
-                                openness: 20,
-                                confidence: 0,
+                                vol: 100,
+                                div: 80,
+                                max: 60,
+                                sri: 40,
+                                lon: 20,
+                                ind: 0,
                             },
                         },
                     ],
