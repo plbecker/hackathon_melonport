@@ -1,6 +1,7 @@
 import React from 'react';
 //import ReactD3 from 'react-d3-components';
 import { LineChart, Brush, d3 } from 'react-d3-components';
+//import LineChart from './LineChart';
 //import * as d3 from 'd3';
 
 // cell renderer for the proficiency column. this is a very basic cell renderer,

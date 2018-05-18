@@ -9,8 +9,9 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
-import MelonSpiderComponent from './MelonSpider/MelonSpiderComponent';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
+import MelonSpiderComponent from './MelonSpider/MelonSpiderComponent';
 import RankingComponent from './Ranking/RankingComponent';
 
 
@@ -32,6 +33,13 @@ const styles = {
   },
 };
 
+const font = 'Crimson Text';
+
+const theme = createMuiTheme({
+    typography: {
+        fontFamily: [font],
+    }
+});
 
 
 class App extends Component {
@@ -42,6 +50,7 @@ class App extends Component {
 
     render() {
         return (
+        <MuiThemeProvider theme={theme}>
             <div style={{margin:'10%', display:'flex'}}>
                 <div style={{flex:'1'}}>
                     <Card className={"ranking-card"}>
@@ -61,6 +70,7 @@ class App extends Component {
                     </Card> 
                 </div>
             </div>
+        </MuiThemeProvider>
         );
     }
 }
