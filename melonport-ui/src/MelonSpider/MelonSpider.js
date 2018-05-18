@@ -1,38 +1,20 @@
 import React, { Component } from 'react';
 import './MelonSpider.css'
 
-import Radar from 'react-d3-radar';
-
-// use react-chartjs
+import { Radar as RadarChart } from "react-chartjs";
 
 export default class MelonSpider extends Component {
     constructor(props) {
         super(props);
 
         this.data = props.data;
+        this.chartOptions = props.chartOptions;
+        console.log(this.data);
     }
 
     render() {
         return <div className="spider">
-
-            <Radar
-                width={400}
-                height={400}
-                padding={0}
-                domainMax={100}
-                highlighted={null}
-                /*
-                onHover={(point) => {
-                    if (point) {
-                        console.log('hovered over a data point');
-                    } else {
-                        console.log('not over anything');
-                    }
-                }}
-                */
-               data={this.data}
-            />
-
+            <RadarChart data={this.data} options={this.chartOptions} width="350" height="350"/>
         </div>
     }
 }

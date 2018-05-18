@@ -51,7 +51,7 @@ class App extends Component {
                         </CardContent>
                     </Card>
                 </div>
-                <div style={{width:'450px'}}>
+                <div style={{width:'400px'}}>
                     <Card className={'spider-card'}>
                         <CardContent>
                             <div style={{width:'100%'}}>
