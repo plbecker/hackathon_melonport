@@ -3,7 +3,7 @@ import './MelonSpider.css'
 
 import Radar from 'react-d3-radar';
 
-export default class App extends Component {
+export default class MelonSpider extends Component {
     constructor(props) {
         super(props);
 
@@ -11,7 +11,7 @@ export default class App extends Component {
     }
 
     render() {
-        return <div>
+        return <div className="spider">
 
             <Radar
                 width={500}
