@@ -1,6 +1,4 @@
 {
   "dependencies": {
-    "d3": "^5.4.0",
-    "react-d3-radar": "^0.2.6"
   }
 }

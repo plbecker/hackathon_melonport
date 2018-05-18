@@ -1,0 +1,1 @@
+What tokens do you want to be whitelisted for a fund?
