@@ -16,9 +16,9 @@ export default class MelonSpider extends Component {
         return <div className="spider">
 
             <Radar
-                width={500}
-                height={500}
-                padding={70}
+                width={400}
+                height={400}
+                padding={0}
                 domainMax={100}
                 highlighted={null}
                 /*
