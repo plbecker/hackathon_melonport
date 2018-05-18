@@ -2,8 +2,9 @@ import React from 'react';
 
 import MelonSpider from './MelonSpider';
 
-import spiderVariables from './spiderVariables';
-import spiderSet1 from './spiderSet1';
+import spiderLabels from './spiderLabels';
+import personalSpiderData from './personalSpiderData';
+import spiderData1 from './spiderData1';
 
 var chartOptions = {
     //scaleShowLine : false,
@@ -25,9 +26,18 @@ var chartOptions = {
     //legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].strokeColor%>\"><%if(datasets[i].label){%><%=datasets[i].label%><%}%></span></li><%}%></ul>"
 }
 
+var combinedSpiderData1 = {
+    "labels": spiderLabels,
+    "datasets": [
+        personalSpiderData,
+        spiderData1
+    ]
+}
+
 let MelonSpiderComponent = () => (
     <div>
-        <MelonSpider data={spiderSet1} chartOptions={chartOptions} />
+        {console.log(combinedSpiderData1)}
+        <MelonSpider data={combinedSpiderData1} chartOptions={chartOptions} />
     </div>
 );
 
