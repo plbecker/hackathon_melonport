@@ -4,33 +4,23 @@ import React from 'react';
 // it is arguable that we should not of used React and just returned a string of
 // html as a normal ag-Grid cellRenderer.
 export default class FundChartCellRenderer extends React.Component {
-    render() {
 
-        //let max = width  
-        let max = 68
-        let mLeft = 'auto'
-        let mRight = max
-        let neg = true
-        if (Math.random() < 0.5){
-            neg = false
-            mLeft = max
-            mRight = 'auto'
-        }
+    render() {
         let rand = 1 + (Math.random() * (99))
         rand = Math.round(rand)
 
         let backgroundColor;
-        if (neg && rand > 10) {
+        if (rand < 20) {
             backgroundColor = 'red';
-        } else if (!neg && rand >= 10) {
-            backgroundColor = '#00A000';
-        } else {
+        } else if (rand < 60) {
             backgroundColor = '#ff9900';
+        } else {
+            backgroundColor = '#00A000';
         }
         return (
-            <div className="div-percent-bar" style={{marginLeft:mLeft+'px', position:'absolute', top:'0', right:mRight,  width:rand/2+ '%', backgroundColor: backgroundColor}}>
-                <div className="div-percent-value" style={{}}>{rand}%</div>
+            <div className="div-percent-bar" style={{width:rand+ '%', backgroundColor: backgroundColor}}>
+                <div className="div-percent-value">{rand}%</div>
             </div>
         );
     }
-} 
+}
