@@ -7,13 +7,13 @@ export default class FundChartCellRenderer extends React.Component {
 
     render() {
         let max = 68
+        let mRight = '50%'
         let mLeft = 'auto'
-        let mRight = max
         let neg = true
         if (Math.random() < 0.5){
             neg = false
-            mLeft = max
             mRight = 'auto'
+            mLeft = '50%'
         }
         let rand = 1 + (Math.random() * (99))
         rand = Math.round(rand)
@@ -27,8 +27,13 @@ export default class FundChartCellRenderer extends React.Component {
             backgroundColor = '#ff9900';
         }
         return (
-            <div className="div-percent-bar" style={{marginLeft:mLeft+'px', position:'absolute', top:'0', right:mRight,  width:rand/2+ '%', backgroundColor: backgroundColor}}>
-                <div className="div-percent-value" style={{}}>{rand}%</div>
+//            <div className="div-percent-bar" style={{marginLeft:mLeft+'px', position:'absolute', top:'0', right:mRight,  width:rand/2+ '%', backgroundColor: backgroundColor}}>
+//                <div className="div-percent-value" style={{}}>{rand}%</div>
+//            </div>
+            <div classname="div-container-percent-bar" style={{textAlign:'center'}}>
+                <div className="div-percent-bar" style={{margin:'0 auto', position:'absolute', right:mRight, left:mLeft, width:rand/2+ '%', backgroundColor: backgroundColor}}>
+                    <div className="div-percent-value" style={{}}>{rand}%</div>
+                </div>
             </div>
         );
     }
