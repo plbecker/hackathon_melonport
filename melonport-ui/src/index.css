@@ -1,12 +1,12 @@
 body {
   margin: 0px;
   padding: 0px;
-  font-family: 'CrimsonText',  sans-serif;
+  font-family: 'Crimson Text',  sans-serif;
   background-color: #FFFDF4;
 }
 
-.ranking_text {
-    font-family: 'CrimsonText';
+* {
+    font-family: 'Crimson Text';
 }
 
 

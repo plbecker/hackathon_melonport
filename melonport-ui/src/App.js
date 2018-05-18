@@ -3,6 +3,7 @@ import './App.css';
 
 import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
+import CardHeader from '@material-ui/core/CardHeader';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
@@ -44,6 +45,7 @@ class App extends Component {
             <div style={{margin:'10%', display:'flex'}}>
                 <div style={{flex:'1'}}>
                     <Card className={"ranking-card"}>
+                        <CardHeader title="Melon Fund Ranking"/>
                         <CardContent>
                             <RankingComponent />
                         </CardContent>
