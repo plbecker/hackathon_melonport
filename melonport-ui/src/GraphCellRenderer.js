@@ -19,9 +19,12 @@ export default class GraphCellRenderer extends React.Component {
                 values: array
                 }];
         return (
-            <div>
+            <div style={{position:'relative'}}>
+
+            <hr style={{position: 'absolute', top:'30%', width:'90%', border:'1px dashed #ccc'}}/>
             <LineChart
                 data={data}
+                style={{position:'absolute'}}
                 width={100}
                 height={35}
                 xAxis={{innerTickSize: 0 }}
