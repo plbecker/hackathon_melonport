@@ -80,9 +80,12 @@ class Ranking extends Component {
             <div  className="ag-theme-material"
             style={{ 
                 height: '900px', 
+                marginBottom: '-20px'
                 //margin: '0 auto'
             }}>
                 <AgGridReact 
+                    paginationPageSize={40}
+                    pagination={true}
                     enableSorting={true}
                     enableFilter={true}
                     enableColResizes={true}
