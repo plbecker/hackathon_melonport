@@ -4,7 +4,7 @@ import './App.css';
 
 import { AgGridReact, AgGridColumn} from 'ag-grid-react';
 import 'ag-grid/dist/styles/ag-grid.css';
-import 'ag-grid/dist/styles/ag-theme-balham.css';
+import 'ag-grid/dist/styles/ag-theme-material.css';
 
 import FundChartCellRenderer from './FundChartCellRenderer.js'
 
@@ -21,9 +21,30 @@ class App extends Component {
                 {headerName: "Inception", field: "inception", valueGetter: dateFormatter}
             ]
 */
-        }
-    
+            onGridReady: function(params) {
+                params.api.sizeColumnsToFit();
+                window.addEventListener("resize", function() {
+                  setTimeout(function() {
+                    params.api.sizeColumnsToFit();
+                  });
+        });
+      }
+    };
     }
+
+    onGridReady(params) {
+        this.gridApi = params.api;
+        this.gridColumnApi = params.columnApi;
+
+        params.api.sizeColumnsToFit();
+        window.addEventListener("resize", function() {
+          setTimeout(function() {
+            params.api.sizeColumnsToFit();
+          });
+        });
+
+        params.api.sizeColumnsToFit();
+  }
 
     static roundFormatter(params){
         return Math.round(params.data.sharePrice * 100) / 100 + ' CHF'
@@ -39,24 +60,35 @@ class App extends Component {
             .then(rowData => this.setState({rowData}))
     }
 
+    onGridReady(params) {
+        this.gridApi = params.api;
+        this.columnApi = params.columnApi;
+        this.gridApi.sizeColumnsToFit();
+        window.onresize = () => {
+            this.gridApi.sizeColumnsToFit();
+        }
+}
+
     render() {
         return (
-            <div  className="ag-theme-balham"
+            <div  className="ag-theme-material"
             style={{ 
                 height: '1200px', 
-                width: '80%',
+                width: '100%',
                 margin: '0 auto'
             }}>
             <AgGridReact 
                 enableSorting={true}
                 enableFilter={true}
+                enableColResizes={true}
+                rowMultiSelectWithClick={true}
 //                columnDefs={this.state.columnDefs} 
                 rowData={this.state.rowData}>
 
-                <AgGridColumn headerName="Fund Name" field="name" width={250}></AgGridColumn>
-                <AgGridColumn headerName="Price" field="sharePrice" cellClass="number-cell"  width={170} valueFormatter={App.roundFormatter}></AgGridColumn>
-                <AgGridColumn headerName="1 YTD Performance" field="graph" width={170} enableValue cellRendererFramework={FundChartCellRenderer}></AgGridColumn>
-                <AgGridColumn headerName="Inception" field="inception"  width={170} valueFormatter={App.dateFormatter}></AgGridColumn>
+                <AgGridColumn headerName="Fund Name" field="name"></AgGridColumn>
+                <AgGridColumn headerName="Price" field="sharePrice" cellClass="number-cell" valueFormatter={App.roundFormatter}></AgGridColumn>
+                <AgGridColumn headerName="1 YTD Performance" field="graph" enableValue cellRendererFramework={FundChartCellRenderer}></AgGridColumn>
+                <AgGridColumn headerName="Inception" field="inception" valueFormatter={App.dateFormatter}></AgGridColumn>
             </AgGridReact>
             </div>
         );
