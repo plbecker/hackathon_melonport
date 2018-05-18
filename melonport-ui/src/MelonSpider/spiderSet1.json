@@ -2,13 +2,13 @@
     "labels": [
         "Diversification",
         "Whitelist Score", 
-        "Risk Management", 
+        "Ex Ante Score", 
         "Social Responsibility", 
         "Long-Term", 
         "Volatility"
     ],
     "datasets": [{
-            "label": "My First dataset",
+            "label": "My values",
             "fillColor": "rgba(220,220,220,0.2)",
             "strokeColor": "rgba(220,220,220,1)",
             "pointColor": "rgba(220,220,220,1)",
@@ -18,7 +18,7 @@
             "data": [65, 59, 90, 81, 56, 55]
         },
         {
-            "label": "My Second dataset",
+            "label": "Fund values",
             "fillColor": "rgba(151,187,205,0.2)",
             "strokeColor": "rgba(151,187,205,1)",
             "pointColor": "rgba(151,187,205,1)",
