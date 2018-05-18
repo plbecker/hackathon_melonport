@@ -31,6 +31,7 @@ class App extends Component {
               }
             ,rowSelection: "multiple"
             }
+
         };
     
 
@@ -55,11 +56,23 @@ class App extends Component {
     static dateFormatter(params){
         return params.data.inception.substring(0,10)
     }
+
+    static rankFormatter(params){
+        return params.data.rank;
+    }
     
     componentDidMount(){
         fetch('https://ranking.melon.fund/')
             .then(result => result.json())
-            .then(rowData => this.setState({rowData}))
+            .then(rowData => {
+                var rank = 1;
+
+                rowData.forEach(row => {
+                    row.rank = rank++;
+                });
+
+                this.setState({rowData});
+            })
     }
 
     onGridReady(params) {
@@ -93,6 +106,7 @@ class App extends Component {
 //                columnDefs={this.state.columnDefs} 
                 rowData={this.state.rowData}>
 
+                <AgGridColumn headerName="Rank" field="rank" valueFormatter={App.rankFormatter}></AgGridColumn>
                 <AgGridColumn checkboxSelection  headerName="Fund Name" field="name"></AgGridColumn>
                 <AgGridColumn headerName="Share Price" field="sharePrice" cellClass="number-cell" valueFormatter={App.roundFormatter} ></AgGridColumn>
                 <AgGridColumn headerName="1 YTD Performance" field="graph" enableValue cellRendererFramework={FundChartCellRenderer}></AgGridColumn>
