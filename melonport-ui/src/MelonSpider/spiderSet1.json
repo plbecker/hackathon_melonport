@@ -1,0 +1,27 @@
+{
+    "sets": [{
+            "key": "me",
+            "label": "My Scores",
+            "values": {
+                "vol": 40,
+                "div": 80,
+                "max": 70,
+                "sri": 20,
+                "lon": 80,
+                "ind": 10
+            }
+        },
+        {
+            "key": "everyone",
+            "label": "Everyone",
+            "values": {
+                "vol": 95,
+                "div": 80,
+                "max": 60,
+                "sri": 40,
+                "lon": 20,
+                "ind": 75
+            }
+        }
+    ]
+}

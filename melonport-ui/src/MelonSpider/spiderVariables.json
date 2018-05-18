@@ -1,0 +1,28 @@
+{
+    "variables": [
+        {
+            "key": "div",
+            "label": "Diversification"
+        },
+        {
+            "key": "ind",
+            "label": "Whitelist Score"
+        },
+        {
+            "key": "max",
+            "label": "Strong Risk Management"
+        },
+        {
+            "key": "sri",
+            "label": "Social Responsibility"
+        },
+        {
+            "key": "lon",
+            "label": "Long Term Investment"
+        },
+        {
+            "key": "vol",
+            "label": "Volatility"
+        }
+    ]
+}
