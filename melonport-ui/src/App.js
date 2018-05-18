@@ -5,7 +5,7 @@ import { AgGridReact, AgGridColumn} from 'ag-grid-react';
 import 'ag-grid/dist/styles/ag-grid.css';
 import 'ag-grid/dist/styles/ag-theme-material.css';
 
-import MelonSpider from './MelonSpider/MelonSpider';
+import MelonSpiderComponent from './MelonSpider/MelonSpiderComponent';
 
 import FundChartCellRenderer from './FundChartCellRenderer.js'
 import GraphCellRenderer from './GraphCellRenderer.js'
@@ -115,7 +115,7 @@ class App extends Component {
                 <AgGridColumn headerName="Inception" field="inception" valueFormatter={App.dateFormatter}></AgGridColumn>
             </AgGridReact>
 
-            <MelonSpider />
+            <MelonSpiderComponent />
 
             </div>
         );
