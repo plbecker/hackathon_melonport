@@ -8,6 +8,7 @@ import 'ag-grid/dist/styles/ag-theme-material.css';
 import MelonSpider from './MelonSpider/MelonSpider';
 
 import FundChartCellRenderer from './FundChartCellRenderer.js'
+import GraphCellRenderer from './GraphCellRenderer.js'
 
 class App extends Component {
     constructor(props) {
@@ -106,10 +107,11 @@ class App extends Component {
 //                columnDefs={this.state.columnDefs} 
                 rowData={this.state.rowData}>
 
-                <AgGridColumn headerName="Rank" field="rank" valueFormatter={App.rankFormatter}></AgGridColumn>
-                <AgGridColumn checkboxSelection  headerName="Fund Name" field="name"></AgGridColumn>
+                <AgGridColumn checkboxSelection  headerName="Rank" field="rank" valueFormatter={App.rankFormatter}></AgGridColumn>
+                <AgGridColumn headerName="Fund Name" field="name"></AgGridColumn>
+                <AgGridColumn headerName="Graph" suppressAutoSize suppressResize field="graph" enableValue cellRendererFramework={GraphCellRenderer}></AgGridColumn>
                 <AgGridColumn headerName="Share Price" field="sharePrice" cellClass="number-cell" valueFormatter={App.roundFormatter} ></AgGridColumn>
-                <AgGridColumn headerName="1 YTD Performance"  suppressAutoSize suppressResize field="graph" enableValue cellRendererFramework={FundChartCellRenderer}></AgGridColumn>
+                <AgGridColumn headerName="1 YTD Performance"  suppressAutoSize suppressResize field="performance" enableValue cellRendererFramework={FundChartCellRenderer}></AgGridColumn>
                 <AgGridColumn headerName="Inception" field="inception" valueFormatter={App.dateFormatter}></AgGridColumn>
             </AgGridReact>
 
