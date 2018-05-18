@@ -27,10 +27,12 @@ class App extends Component {
                   setTimeout(function() {
                     params.api.sizeColumnsToFit();
                   });
-        });
-      }
-    };
-    }
+                });
+              }
+            ,rowSelection: "multiple"
+            }
+        };
+    
 
     onGridReady(params) {
         this.gridApi = params.api;
@@ -81,15 +83,18 @@ class App extends Component {
                 enableSorting={true}
                 enableFilter={true}
                 enableColResizes={true}
-                rowMultiSelectWithClick={true}
+                rowSelection={this.state.rowSelection}
+//                rowMultiSelectWithClick={true}
                 onGridReady={this.state.onGridReady}
                 onGridReady={this.onGridReady.bind(this)}
+//                suppressRowClickSelection={true}
+//                suppressAggFuncInHeader={true}
 
 //                columnDefs={this.state.columnDefs} 
                 rowData={this.state.rowData}>
 
-                <AgGridColumn headerName="Fund Name" field="name"></AgGridColumn>
-                <AgGridColumn headerName="Price" field="sharePrice" cellClass="number-cell" valueFormatter={App.roundFormatter}></AgGridColumn>
+                <AgGridColumn checkboxSelection  headerName="Fund Name" field="name"></AgGridColumn>
+                <AgGridColumn headerName="Share Price" field="sharePrice" cellClass="number-cell" valueFormatter={App.roundFormatter} ></AgGridColumn>
                 <AgGridColumn headerName="1 YTD Performance" field="graph" enableValue cellRendererFramework={FundChartCellRenderer}></AgGridColumn>
                 <AgGridColumn headerName="Inception" field="inception" valueFormatter={App.dateFormatter}></AgGridColumn>
             </AgGridReact>
