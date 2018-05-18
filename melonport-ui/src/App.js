@@ -5,10 +5,37 @@ import { AgGridReact, AgGridColumn} from 'ag-grid-react';
 import 'ag-grid/dist/styles/ag-grid.css';
 import 'ag-grid/dist/styles/ag-theme-material.css';
 
+import { withStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+
 import MelonSpiderComponent from './MelonSpider/MelonSpiderComponent';
 
 import FundChartCellRenderer from './FundChartCellRenderer.js'
 import GraphCellRenderer from './GraphCellRenderer.js'
+
+const styles = {
+  card: {
+    minWidth: 275,
+  },
+  bullet: {
+    display: 'inline-block',
+    margin: '0 2px',
+    transform: 'scale(0.8)',
+  },
+  title: {
+    marginBottom: 16,
+    fontSize: 14,
+  },
+  pos: {
+    marginBottom: 12,
+  },
+};
+
+
 
 class App extends Component {
     constructor(props) {
@@ -87,36 +114,51 @@ class App extends Component {
 
     render() {
         return (
-            <div  className="ag-theme-material"
-            style={{ 
-                height: '1200px', 
-                width: '100%',
-                margin: '0 auto'
-            }}>
-            <AgGridReact 
-                enableSorting={true}
-                enableFilter={true}
-                enableColResizes={true}
-                rowSelection={this.state.rowSelection}
-//                rowMultiSelectWithClick={true}
-                onGridReady={this.state.onGridReady}
-                onGridReady={this.onGridReady.bind(this)}
-//                suppressRowClickSelection={true}
-//                suppressAggFuncInHeader={true}
+            <div style={{margin:'10%', display:'flex'}}>
+            <div style={{flex:'1'}}>
+                <Card className={"Card"}>
+                    <CardContent>
+                <div  className="ag-theme-material"
+                style={{ 
+                    height: '600px', 
+                    //margin: '0 auto'
+                }}>
+                <AgGridReact 
+                    enableSorting={true}
+                    enableFilter={true}
+                    enableColResizes={true}
+                    rowSelection={this.state.rowSelection}
+    //                rowMultiSelectWithClick={true}
+                    onGridReady={this.state.onGridReady}
+                    onGridReady={this.onGridReady.bind(this)}
+    //                suppressRowClickSelection={true}
+    //                suppressAggFuncInHeader={true}
 
-//                columnDefs={this.state.columnDefs} 
-                rowData={this.state.rowData}>
+    //                columnDefs={this.state.columnDefs} 
+                    rowData={this.state.rowData}>
 
-                <AgGridColumn checkboxSelection  headerName="Rank" field="rank" valueFormatter={App.rankFormatter}></AgGridColumn>
-                <AgGridColumn headerName="Fund Name" field="name"></AgGridColumn>
-                <AgGridColumn headerName="Graph" suppressAutoSize suppressResize field="graph" enableValue cellRendererFramework={GraphCellRenderer}></AgGridColumn>
-                <AgGridColumn headerName="Share Price" field="sharePrice" cellClass="number-cell" valueFormatter={App.roundFormatter} ></AgGridColumn>
-                <AgGridColumn headerName="1 YTD Performance"  suppressAutoSize suppressResize field="performance" enableValue cellRendererFramework={FundChartCellRenderer}></AgGridColumn>
-                <AgGridColumn headerName="Inception" field="inception" valueFormatter={App.dateFormatter}></AgGridColumn>
-            </AgGridReact>
+                    <AgGridColumn checkboxSelection  headerName="Rank" field="rank" valueFormatter={App.rankFormatter}></AgGridColumn>
+                    <AgGridColumn headerName="Fund Name" field="name"></AgGridColumn>
+                    <AgGridColumn headerName="Graph" suppressAutoSize suppressResize field="graph" enableValue cellRendererFramework={GraphCellRenderer}></AgGridColumn>
+                    <AgGridColumn headerName="Share Price" field="sharePrice" cellClass="number-cell" valueFormatter={App.roundFormatter} ></AgGridColumn>
+                    <AgGridColumn headerName="1 YTD Performance"  suppressAutoSize suppressResize field="performance" enableValue cellRendererFramework={FundChartCellRenderer}></AgGridColumn>
+                    <AgGridColumn headerName="Inception" field="inception" valueFormatter={App.dateFormatter}></AgGridColumn>
+                </AgGridReact>
+
+
+                </div>
+                </CardContent>
+                </Card>
+            </div>
+            <div style={{width:'600px'}}>
+            <Card className={'spider'}>
+                <CardContent>
+                    <div style={{width:'100%'}}>
 
             <MelonSpiderComponent />
-
+                    </div>
+                </CardContent>
+            </Card> </div>
             </div>
         );
     }
