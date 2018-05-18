@@ -5,5 +5,11 @@ body {
   background-color: #FFFDF4;
 }
 
+.ranking_text {
+    font-family: 'CrimsonText';
+}
+
+
 .spider-card {
-    margin-left: 15px;}
+    margin-left: 15px;
+}
