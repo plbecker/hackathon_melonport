@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 import { AgGridReact, AgGridColumn} from 'ag-grid-react';
 import 'ag-grid/dist/styles/ag-grid.css';
 import 'ag-grid/dist/styles/ag-theme-material.css';
+
+import MelonSpider from './MelonSpider/MelonSpider';
 
 import FundChartCellRenderer from './FundChartCellRenderer.js'
 
@@ -66,7 +67,6 @@ class App extends Component {
             .then(result => result.json())
             .then(rowData => {
                 var rank = 1;
-
                 rowData.forEach(row => {
                     row.rank = rank++;
                 });
@@ -112,6 +112,9 @@ class App extends Component {
                 <AgGridColumn headerName="1 YTD Performance" field="graph" enableValue cellRendererFramework={FundChartCellRenderer}></AgGridColumn>
                 <AgGridColumn headerName="Inception" field="inception" valueFormatter={App.dateFormatter}></AgGridColumn>
             </AgGridReact>
+
+            <MelonSpider />
+
             </div>
         );
     }
