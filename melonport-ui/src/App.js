@@ -43,14 +43,14 @@ class App extends Component {
         return (
             <div style={{margin:'10%', display:'flex'}}>
                 <div style={{flex:'1'}}>
-                    <Card className={"Card"}>
+                    <Card className={"ranking-card"}>
                         <CardContent>
                             <RankingComponent />
                         </CardContent>
                     </Card>
                 </div>
-                <div style={{width:'500px'}}>
-                    <Card className={'spider'}>
+                <div style={{width:'350px'}}>
+                    <Card className={'spider-card'}>
                         <CardContent>
                             <div style={{width:'100%'}}>
                                 <MelonSpiderComponent />
