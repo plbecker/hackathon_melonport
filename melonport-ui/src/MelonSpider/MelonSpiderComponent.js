@@ -5,9 +5,11 @@ import MelonSpider from './MelonSpider';
 import spiderVariables from './spiderVariables';
 import spiderSet1 from './spiderSet1';
 
-let MelonSpiderComponent = ({ game, dispatch, translate, currentLanguage }) => (
+var chartOptions = {}
+
+let MelonSpiderComponent = () => (
     <div>
-            <MelonSpider data={{sets: spiderSet1.sets, variables: spiderVariables.variables}} />
+            <MelonSpider data={spiderSet1} chartOptions={chartOptions} />
     </div>
 );
 
