@@ -5,7 +5,9 @@ import MelonSpider from './MelonSpider';
 import spiderVariables from './spiderVariables';
 import spiderSet1 from './spiderSet1';
 
-var chartOptions = {}
+var chartOptions = {
+    
+}
 
 let MelonSpiderComponent = () => (
     <div>
