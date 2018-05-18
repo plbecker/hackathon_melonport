@@ -109,7 +109,7 @@ class App extends Component {
                 <AgGridColumn headerName="Rank" field="rank" valueFormatter={App.rankFormatter}></AgGridColumn>
                 <AgGridColumn checkboxSelection  headerName="Fund Name" field="name"></AgGridColumn>
                 <AgGridColumn headerName="Share Price" field="sharePrice" cellClass="number-cell" valueFormatter={App.roundFormatter} ></AgGridColumn>
-                <AgGridColumn headerName="1 YTD Performance" field="graph" enableValue cellRendererFramework={FundChartCellRenderer}></AgGridColumn>
+                <AgGridColumn width="140px" headerName="1 YTD Performance" field="graph" enableValue cellRendererFramework={FundChartCellRenderer}></AgGridColumn>
                 <AgGridColumn headerName="Inception" field="inception" valueFormatter={App.dateFormatter}></AgGridColumn>
             </AgGridReact>
 

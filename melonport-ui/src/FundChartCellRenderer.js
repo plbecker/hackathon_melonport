@@ -4,11 +4,9 @@ import React from 'react';
 // it is arguable that we should not of used React and just returned a string of
 // html as a normal ag-Grid cellRenderer.
 export default class FundChartCellRenderer extends React.Component {
-    constructor(props){
-        super(props)
-        this.cell = React.createRef()
-    }
     render() {
+
+        //let max = width  
         let max = 68
         let mLeft = 'auto'
         let mRight = max
@@ -35,4 +33,4 @@ export default class FundChartCellRenderer extends React.Component {
             </div>
         );
     }
-}
+} 
