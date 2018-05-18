@@ -79,7 +79,7 @@ class Ranking extends Component {
         return (
             <div  className="ag-theme-material"
             style={{ 
-                height: '600px', 
+                height: '900px', 
                 //margin: '0 auto'
             }}>
                 <AgGridReact 
