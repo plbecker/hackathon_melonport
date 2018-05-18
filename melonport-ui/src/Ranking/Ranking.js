@@ -103,7 +103,7 @@ class Ranking extends Component {
                     <AgGridColumn headerName="Fund Name" field="name"></AgGridColumn>
                     <AgGridColumn headerName="Graph" suppressAutoSize suppressResize field="graph" enableValue cellRendererFramework={GraphCellRenderer}></AgGridColumn>
                     <AgGridColumn headerName="Share Price" field="sharePrice" cellClass="number-cell" valueFormatter={Ranking.roundFormatter} ></AgGridColumn>
-                    <AgGridColumn headerName="1 YTD Performance"  suppressAutoSize suppressResize field="performance" enableValue cellRendererFramework={FundChartCellRenderer}></AgGridColumn>
+                    <AgGridColumn headerName="Yearly Avg Performance"  suppressAutoSize suppressResize field="performance" enableValue cellRendererFramework={FundChartCellRenderer}></AgGridColumn>
                     <AgGridColumn headerName="Inception" field="inception" valueFormatter={Ranking.dateFormatter}></AgGridColumn>
                 </AgGridReact>
 

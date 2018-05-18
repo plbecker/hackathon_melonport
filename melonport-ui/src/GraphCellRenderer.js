@@ -15,21 +15,20 @@ export default class GraphCellRenderer extends React.Component {
         }
         let data = [
                 {
-                label: 'somethingA',
                 values: array
                 }];
         return (
             <div style={{position:'relative'}}>
 
-            <hr style={{position: 'absolute', top:'30%', width:'90%', border:'1px dashed #ccc'}}/>
+            <hr style={{position: 'absolute', top:'30%', width:'90%', border:'1px dashed #ddd'}}/>
             <LineChart
                 data={data}
                 style={{position:'absolute'}}
-                width={100}
-                height={35}
-                xAxis={{innerTickSize: 0 }}
-                yAxis={{innerTickSize:0}}
-                margin={{top:14, bottom: 5, left: 10, right: 0}}/>
+                width={115}
+                height={40}
+                xAxis={{tickValue: null, outerTickSize: 0, tickPadding: 0, innerTickSize: 0, className: "xAxis", tickFormat: x => { return ''; },}}
+                yAxis={{outerTickSize: 0, tickPadding: 0, innerTickSize: 0, className: "yAxis", tickFormat: x => { return ''; },}}
+                margin={{top:12, bottom: 5, left: 10, right: 0}}/>
             </div>
         )}
 }
