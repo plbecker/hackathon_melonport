@@ -5,6 +5,7 @@ import MelonSpider from './MelonSpider';
 import spiderLabels from './spiderLabels';
 import personalSpiderData from './personalSpiderData';
 import spiderData1 from './spiderData1';
+import spiderData2 from './spiderData2';
 
 var chartOptions = {
     //scaleShowLine : false,
@@ -34,10 +35,18 @@ var combinedSpiderData1 = {
     ]
 }
 
+var combinedSpiderData2 = {
+    "labels": spiderLabels,
+    "datasets": [
+        spiderData1,
+        spiderData2
+    ]
+}
+
 let MelonSpiderComponent = () => (
     <div>
         {console.log(combinedSpiderData1)}
-        <MelonSpider data={combinedSpiderData1} chartOptions={chartOptions} />
+        <MelonSpider data={combinedSpiderData2} chartOptions={chartOptions} />
     </div>
 );
 
