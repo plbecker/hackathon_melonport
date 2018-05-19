@@ -2,3 +2,7 @@
     margin: 20px;
 }
 
+.selectIndicator {
+    height: 48px !important;
+    padding-top: 20px !important;
+}

@@ -98,11 +98,6 @@ class App extends Component {
 
             </CardHeader>
                         <CardContent>
-            <div style={{width:'auto', height:'48px', paddingTop:'20px', marginTop:'-15px', marginLeft:'-25px', marginRight:'-25px', backgroundColor:'#111'}}>
-            <Typography variant="title"  component='h3' color='primary' style={{marginLeft:'20px'}}>
-                Select two funds to compare them.
-              </Typography> 
-            </div>
                             <RankingComponent />
                         </CardContent>
                     </Card>
