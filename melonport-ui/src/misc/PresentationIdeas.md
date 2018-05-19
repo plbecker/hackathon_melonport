@@ -2,7 +2,7 @@
 
 Who are we?
 
-# Problem
+# Problems & Solutions
 
 Tell what problem we wanted to solve:
 
@@ -11,17 +11,23 @@ Tell what problem we wanted to solve:
 Show old ranking
 The ranking doesn't say much --> visualize why!
 
+RESULTS
+
 ## Strategy
 **What Fund suits me well?**
 Show fund overview --> not really helping when you have hundreds of funds
 MelonSpider --> provide input what I care about and compare with funds ("Fund Matchmaking")
 
+RESULTS
+
 ## Comparison
 **TODO what question we answer???**
 Compare funds on share price / performance
 
+RESULTS
 
-# Results
+
+# Future Work
 
 ## Melon Spider
 0 funds marked: show own spider
@@ -30,6 +36,8 @@ Compare funds on share price / performance
 
 
 # Technology we used
+?
 
 
 # Link to github
+https://github.com/Pr0duktiv/hackathon_melonport
