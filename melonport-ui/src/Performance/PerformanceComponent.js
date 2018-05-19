@@ -57,7 +57,7 @@ class PerformanceComponent extends Component {
 		{
 			label: "Fund2",
 			fillColor: color2alpha,
-			strokeColor: color2,
+			strokeColor: "rgba(220,220,220,1)",
 			pointColor: color2,
 			pointStrokeColor: "#fff",
 			pointHighlightFill: "#fff",

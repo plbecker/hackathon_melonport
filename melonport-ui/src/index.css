@@ -26,7 +26,14 @@ body {
 }
 
 .headerText{
+    text-align: right;
    position: absolute;
    right: 8%;
    top: 4%;
 }
+
+.headerText > h3 {
+        text-decoration: underline;
+        letter-spacing: 2.5px;
+    }
+
