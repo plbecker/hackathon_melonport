@@ -1,33 +1,7 @@
 import React, { Component } from 'react';
 
 import MelonSpider from './MelonSpider';
-
 import spiderLabels from './spiderLabels';
-import personalSpiderData from './personalSpiderData';
-import spiderData1 from './spiderData1';
-import spiderData2 from './spiderData2';
-
-var chartOptions = {
-    // POSSIBLE OPTIONS
-    //scaleShowLine : false,
-    //angleShowLineOut : false,
-    //scaleShowLabels : true, 
-    //angleLineColor : "rgba(0,255,0,.1)",
-    //angleLineWidth : 3,
-    pointLabelFontFamily: "'sans-serif'",
-    //pointLabelFontFamily : "'Crimson Text'",
-    //pointLabelFontStyle : "bold",
-    //pointLabelFontSize : 12,
-    //pointLabelFontColor : "#000000",
-    //pointDot : false,
-    //pointDotRadius : 7,
-    //pointDotStrokeWidth : 2,
-    //datasetFill : false,
-
-    //String - A legend template
-    //legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].strokeColor%>\"><%if(datasets[i].label){%><%=datasets[i].label%><%}%></span></li><%}%></ul>"
-}
-
 
 class MelonSpiderComponent extends Component {
 
@@ -43,32 +17,69 @@ class MelonSpiderComponent extends Component {
         // TODO only use one spiderdataset here
         // TODO give data from outside
         /* TODO uncomment when props are ready
-        var combinedSpiderData = Object.assign({}, baseSpiderData);
-        combinedSpiderData.datasets = [
-            props.data1,
-            props.data2
-        ];
+        var scores1 = props.scores1;
+        var scores2 = props.scores2;
         */
 
-        var combinedSpiderData1 = Object.assign({}, baseSpiderData);
-        combinedSpiderData1.datasets = [
-            personalSpiderData,
-            spiderData1
-        ];
+        var colors = { red: 131, green: 147, blue: 245 };
 
-        var combinedSpiderData2 = Object.assign({}, baseSpiderData);
-        combinedSpiderData2.datasets = [
+        var scores1 = [65, 59, 90, 81, 56, 55];
+        var scores2 = [28, 48, 40, 19, 27, 94];
+
+        // colors1 is fixed gray
+        var colors1 = { red: 220, green: 220, blue: 220 };
+        // colors2 are calculated from score
+        //var colors2 = { red: 131, green: 147, blue: 245 };
+        var colors2 = this.calculateColorsFromScores(scores1, scores2);
+
+        var spiderData1 = {
+            label: "Fund1",
+            fillColor: this.alphaColorString(colors1),
+            strokeColor: this.normalColorString(colors1),
+            pointColor: this.normalColorString(colors1),
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: this.normalColorString(colors1),
+            data: scores1
+        }
+
+        var spiderData2 = {
+            label: "Fund1",
+            fillColor: this.alphaColorString(colors2),
+            strokeColor: this.normalColorString(colors2),
+            pointColor: this.normalColorString(colors2),
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: this.normalColorString(colors2),
+            data: scores2
+        }
+
+        var combinedSpiderData = Object.assign({}, baseSpiderData);
+        combinedSpiderData.datasets = [
             spiderData1,
             spiderData2
         ];
 
-        this.combinedSpiderData1 = combinedSpiderData1;
-        this.combinedSpiderData2 = combinedSpiderData2;
+        this.combinedSpiderData = combinedSpiderData;
+    }
+
+    calculateColorsFromScores(scores1, scores2) {
+        var matchScore = 0;
+
+        return { red: 255, green: 0, blue: 255 };
+    }
+
+    alphaColorString(colorScore) {
+        return "rgba(" + colorScore.red + "," + colorScore.green + "," + colorScore.blue + ",0.2)";
+    }
+
+    normalColorString(red, green, blue) {
+        return "rgba(" + red + "," + green, + "," + blue + ",1)";
     }
 
     render() {
         return <div>
-            <MelonSpider data={this.combinedSpiderData1} chartOptions={chartOptions} />
+            <MelonSpider data={this.combinedSpiderData} />
         </div>
     }
 }
