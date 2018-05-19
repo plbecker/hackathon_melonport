@@ -13,7 +13,7 @@ export default class Performance extends Component {
 
     render() {
         return <div className="performance-chart">
-            <LineChart data={this.data} options={this.chartOptions} width="320" height="250"/>
+            <LineChart data={this.data} options={this.chartOptions} width="450" height="350"/>
         </div>
     }
 }

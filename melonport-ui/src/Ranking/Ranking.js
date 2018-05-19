@@ -4,6 +4,7 @@ import { AgGridReact, AgGridColumn} from 'ag-grid-react';
 import 'ag-grid/dist/styles/ag-grid.css';
 import 'ag-grid/dist/styles/ag-theme-material.css';
 
+import Typography from '@material-ui/core/Typography';
 import FundChartCellRenderer from '../FundChartCellRenderer.js'
 import GraphCellRenderer from '../GraphCellRenderer.js'
 
@@ -22,6 +23,8 @@ class Ranking extends Component {
                 });
               }
             ,rowSelection: "multiple"
+            , hgt: '0px'
+            , pad: '0px'
             }
 
         };
@@ -66,6 +69,26 @@ class Ranking extends Component {
             })
     }
 
+    onRowSelected(event) {
+        //window.alert("row " + event.node.data.name + " selected = " + event.node.selected);
+    }
+    onSelectionChanged(event) {
+        var rowCount = event.api.getSelectedNodes().length;
+        if (rowCount < 2){
+            const ANIMATION_TIMEOUT = 50;
+            setTimeout(() => {
+               this.setState({hgt: '48px', pad: '20px'}) 
+            }, ANIMATION_TIMEOUT);
+        }
+        else {
+            this.setState({hgt: '0px', pad: '0px'}) 
+            if (rowCount == 2){
+                //do graph stuff
+            }
+        }
+        //window.alert("selection changed, " + rowCount + " rows selected");
+    }
+
     onGridReady(params) {
         this.gridApi = params.api;
         this.columnApi = params.columnApi;
@@ -77,6 +100,12 @@ class Ranking extends Component {
 
     render() {
         return (
+            <div>
+            <div className={'selectIndicator'} style={{transition: 'all 1s', width:'auto', height:this.state.hgt, paddingTop:this.state.pad, marginTop:'-15px', marginLeft:'-25px', marginRight:'-25px', backgroundColor:'#111'}}>
+                <Typography variant="title"  component='h3' color='primary' style={{marginLeft:'20px'}}>
+                    Select two funds to compare them.
+                 </Typography> 
+            </div>
             <div  className="ag-theme-material"
             border='3'
             style={{ 
@@ -95,7 +124,9 @@ class Ranking extends Component {
             //                rowMultiSelectWithClick={true}
                     onGridReady={this.state.onGridReady}
                     onGridReady={this.onGridReady.bind(this)}
-            //                suppressRowClickSelection={true}
+
+                    onRowSelected={this.onRowSelected.bind(this)}
+                    onSelectionChanged={this.onSelectionChanged.bind(this)}    //                suppressRowClickSelection={true}
             //                suppressAggFuncInHeader={true}
 
             //                columnDefs={this.state.columnDefs} 
@@ -110,6 +141,7 @@ class Ranking extends Component {
                 </AgGridReact>
 
 
+            </div>
             </div>
         );
     }

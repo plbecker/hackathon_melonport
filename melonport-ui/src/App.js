@@ -98,43 +98,29 @@ class App extends Component {
 
             </CardHeader>
                         <CardContent>
-            <div style={{width:'auto', height:'48px', paddingTop:'20px', marginTop:'-15px', marginLeft:'-25px', marginRight:'-25px', backgroundColor:'#111'}}>
-            <Typography variant="title"  component='h3' color='primary' style={{marginLeft:'20px'}}>
-                Select two funds to compare them.
-              </Typography> 
-            </div>
                             <RankingComponent />
                         </CardContent>
                     </Card>
                 </div>
-                <div style={{width:'500px'}}>
+                <div className={'expand'} style={{width:'500px'}}>
                             <div className={'spider-card'} style={{width:'100%'}}>
-                                <AppBar position="static" color="primary">
-                                    <SwipeableViews
-                                      axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-                                      index={this.state.value}
-                                      onChangeIndex={this.handleChangeIndex}
-                                    style={{backgroundColor:"#fff"}}
-                                    >
-                              <TabContainer dir={theme.direction}>
-                                           <MelonSpiderComponent />
- 
-                                </TabContainer>
-                              <TabContainer dir={theme.direction}>
-                                    <PerformanceComponent /> 
-                            </TabContainer>
-                            </SwipeableViews>
-                              <Tabs
-                                value={this.state.value}
-                                onChange={this.handleChange}
-                                indicatorColor="secondary"
-                                textColor="secondary"
-                                fullWidth
-                              >
-                                <Tab label="Strategy" />
-                                <Tab label="SharePrice" />
-                              </Tabs>
-                            </AppBar>
+
+                                        <Card className={"graph1-card"}>
+                                            <CardHeader title="Investment Strategy">
+                                            </CardHeader>
+                                            <CardContent>
+                                               <MelonSpiderComponent />
+                                            </CardContent>
+                                        </Card>
+                            </div>
+                            <div className={'performance-card'} style={{width:'100%'}}>
+                                        <Card className={"graph1-card"}>
+                                            <CardHeader title="Fund Performance">
+                                            </CardHeader>
+                                            <CardContent>
+                                            <PerformanceComponent /> 
+                                            </CardContent>
+                                        </Card>
                             </div>
                 </div>
             </div>
