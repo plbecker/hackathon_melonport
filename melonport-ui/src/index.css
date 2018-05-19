@@ -19,3 +19,14 @@ body {
     margin-left: 15px;
 }
 
+.logo{
+    margin-top: 4%;
+    margin-left: 8%;
+    width: 10%;
+}
+
+.headerText{
+   position: absolute;
+   right: 8%;
+   top: 4%;
+}

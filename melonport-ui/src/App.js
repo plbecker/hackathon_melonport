@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import PropTypes from 'prop-types';
+import logo from './logo.png';
 
 
 import { withStyles } from '@material-ui/core/styles';
@@ -91,7 +92,12 @@ class App extends Component {
     render() {
         return (
         <MuiThemeProvider theme={theme}>
-            <div style={{margin:'8%', display:'flex'}}>
+            <img className={'logo'} src={logo}/>
+            <div className={'headerText'}>
+                <p>Start your own blockchain fund today</p>
+                <h3>GET STARTED</h3>
+            </div>
+            <div style={{marginLeft:'8%', marginRight:'8%', marginTop:'4%', display:'flex'}}>
                 <div style={{flex:'1'}}>
                     <Card className={"ranking-card"}>
                         <CardHeader title="Melon Fund Ranking">
