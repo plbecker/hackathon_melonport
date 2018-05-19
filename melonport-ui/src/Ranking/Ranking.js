@@ -89,6 +89,8 @@ class Ranking extends Component {
             if (rowCount == 2){
                 //do graph stuff
                 this.showComparisonComponent.showCompComp(true);
+                setTimeout(function() { this.gridApi.sizeColumnsToFit();}.bind(this),400);
+                
             }
         }
         //window.alert("selection changed, " + rowCount + " rows selected");
@@ -102,6 +104,7 @@ class Ranking extends Component {
             this.gridApi.sizeColumnsToFit();
         }
     }
+
 
     render() {
         return (
