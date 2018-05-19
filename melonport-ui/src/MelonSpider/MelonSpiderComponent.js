@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import MelonSpider from './MelonSpider';
-import spiderLabels from './spiderLabels';
+//import spiderLabels from './spiderLabels';
 
 class MelonSpiderComponent extends Component {
 
@@ -10,11 +10,11 @@ class MelonSpiderComponent extends Component {
 
         /*
         const baseSpiderData = {
-            labels: {},
             datasets: [
             ]
         }
         */
+        //var combinedSpiderData = Object.assign({}, baseSpiderData);
 
         // TODO only use one spiderdataset here
         // TODO give data from outside
@@ -30,7 +30,6 @@ class MelonSpiderComponent extends Component {
         // colors1 is fixed gray
         var colors1 = { red: 220, green: 220, blue: 220 };
         // colors2 are calculated from score
-        //var colors2 = { red: 131, green: 147, blue: 245 };
         var colors2 = this.calculateColorsFromScores(scores1, scores2);
 
         var spiderData1 = {
@@ -55,7 +54,8 @@ class MelonSpiderComponent extends Component {
             data: scores2
         }
 
-        var combinedSpiderData = {};
+        var combinedSpiderData = {}
+        window.combinedSpiderData = combinedSpiderData;
         combinedSpiderData.labels = [
             "Diversification",
             "Whitelist Score",
@@ -64,10 +64,8 @@ class MelonSpiderComponent extends Component {
             "Long-Term",
             "Volatility"
         ];
-
         console.log(combinedSpiderData.labels);
 
-        //var combinedSpiderData = {labels: {}, datasets: []};
         combinedSpiderData.datasets = [
             spiderData1,
             spiderData2
@@ -83,7 +81,7 @@ class MelonSpiderComponent extends Component {
             var difference = (Math.abs(scores1[i] - scores2[i]));
             sum += difference;
         }
-        var matchScore = sum / 6;
+        const matchScore = sum / 6;
 
         console.log(matchScore);
 
