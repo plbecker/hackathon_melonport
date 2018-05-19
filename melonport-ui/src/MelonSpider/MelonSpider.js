@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './MelonSpider.css'
 
 import { Radar as RadarChart } from "react-chartjs";
 

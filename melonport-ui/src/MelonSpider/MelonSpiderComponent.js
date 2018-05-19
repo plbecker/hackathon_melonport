@@ -1,35 +1,18 @@
 import React, { Component } from 'react';
 
 import MelonSpider from './MelonSpider';
-//import spiderLabels from './spiderLabels';
 
 class MelonSpiderComponent extends Component {
 
     constructor(props) {
         super(props);
 
-        /*
-        const baseSpiderData = {
-            datasets: [
-            ]
-        }
-        */
-        //var combinedSpiderData = Object.assign({}, baseSpiderData);
-
-        // TODO only use one spiderdataset here
-        // TODO give data from outside
-        /* TODO uncomment when props are ready
-        var scores1 = props.scores1;
-        var scores2 = props.scores2;
-        */
-
         var arr1 = []
         var arr2 = []
-        for (var i=0; i<6; i++){
-            arr1.push(Math.random() * 5)
-            arr2.push(Math.random() * 5)
+        for (var i = 0; i < 6; i++) {
+            arr1.push(Math.random() * 100)
+            arr2.push(Math.random() * 100)
         }
-        //var scores2 = [65, 59, 90, 81, 56, 55];
 
         // colors1 is fixed gray
         var colors1 = { red: 220, green: 220, blue: 220 };
