@@ -1,5 +1,9 @@
 # Intro
 
+Who are we?
+
+# Problem
+
 Tell what problem we wanted to solve:
 
 ## Ranking

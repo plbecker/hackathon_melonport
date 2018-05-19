@@ -8,11 +8,13 @@ class MelonSpiderComponent extends Component {
     constructor(props) {
         super(props);
 
+        /*
         const baseSpiderData = {
-            labels: spiderLabels,
+            labels: {},
             datasets: [
             ]
         }
+        */
 
         // TODO only use one spiderdataset here
         // TODO give data from outside
@@ -21,10 +23,9 @@ class MelonSpiderComponent extends Component {
         var scores2 = props.scores2;
         */
 
-        var colors = { red: 131, green: 147, blue: 245 };
-
         var scores1 = [65, 59, 90, 81, 56, 55];
         var scores2 = [28, 48, 40, 19, 27, 94];
+        //var scores2 = [65, 59, 90, 81, 56, 55];
 
         // colors1 is fixed gray
         var colors1 = { red: 220, green: 220, blue: 220 };
@@ -44,7 +45,7 @@ class MelonSpiderComponent extends Component {
         }
 
         var spiderData2 = {
-            label: "Fund1",
+            label: "Fund2",
             fillColor: this.alphaColorString(colors2),
             strokeColor: this.normalColorString(colors2),
             pointColor: this.normalColorString(colors2),
@@ -54,7 +55,19 @@ class MelonSpiderComponent extends Component {
             data: scores2
         }
 
-        var combinedSpiderData = Object.assign({}, baseSpiderData);
+        var combinedSpiderData = {};
+        combinedSpiderData.labels = [
+            "Diversification",
+            "Whitelist Score",
+            "Ex Ante Score",
+            "Social Responsibility",
+            "Long-Term",
+            "Volatility"
+        ];
+
+        console.log(combinedSpiderData.labels);
+
+        //var combinedSpiderData = {labels: {}, datasets: []};
         combinedSpiderData.datasets = [
             spiderData1,
             spiderData2
@@ -64,9 +77,22 @@ class MelonSpiderComponent extends Component {
     }
 
     calculateColorsFromScores(scores1, scores2) {
-        var matchScore = 0;
 
-        return { red: 255, green: 0, blue: 255 };
+        var sum = 0;
+        for (var i = 0; i < 6; i++) {
+            var difference = (Math.abs(scores1[i] - scores2[i]));
+            sum += difference;
+        }
+        var matchScore = sum / 6;
+
+        console.log(matchScore);
+
+        const maxDiffColor = 200;
+        const shadedRed = maxDiffColor * matchScore / 100;
+        const shadedGreen = maxDiffColor * matchScore / 100;
+        //const shadedBlue = maxDiffColor * matchScore / 100;
+
+        return { red: shadedRed, green: shadedGreen, blue: 255 };
     }
 
     alphaColorString(colorScore) {

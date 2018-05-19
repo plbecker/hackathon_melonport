@@ -28,7 +28,6 @@ var chartOptions = {
 export default class MelonSpider extends Component {
     constructor(props) {
         super(props);
-
         this.data = props.data;
     }
 
