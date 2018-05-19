@@ -42,7 +42,7 @@ class PerformanceComponent extends Component {
         var data = Object.assign({},baseData);
         data.datasets = [
             {
-			label: "My First dataset",
+			label: "Fund1",
 			fillColor: "rgba(220,220,220,0.2)",
 			strokeColor: "rgba(220,220,220,1)",
 			pointColor: "rgba(220,220,220,1)",
@@ -52,7 +52,7 @@ class PerformanceComponent extends Component {
 			data: [65, 59, 80, 81, 56, 55, 40]
 		},
 		{
-			label: "My Second dataset",
+			label: "Fund2",
 			fillColor: "rgba(151,187,205,0.2)",
 			strokeColor: "rgba(151,187,205,1)",
 			pointColor: "rgba(151,187,205,1)",

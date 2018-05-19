@@ -100,14 +100,14 @@ class App extends Component {
 
     render() {
         return (
-            <MuiThemeProvider theme={theme}>
-                <img className={'logo'} src={logo} />
-                <div className={'headerText'}>
-                    <p>Start your own blockchain fund today</p>
-                    <h3>GET STARTED</h3>
-                </div>
-                <div style={{ marginLeft: '8%', marginRight: '8%', marginTop: '4%', display: 'flex' }}>
-                    <div style={{ flex: '1' }}>
+        <MuiThemeProvider theme={theme}>
+            <img className={'logo'} src={logo}/>
+            <div className={'headerText'}>
+                <p>Start your own blockchain fund today</p>
+                <h3>GET STARTED</h3>
+            </div>
+                <div style={{ marginLeft: '8%', marginRight: '8%', marginTop: '4%'   }}>
+                    <div style={{width : (this.state.showComparisonComponent) ? '65%' : '100%', float:'left' }}>
                         <Card className={"ranking-card"}>
                             <CardHeader title="Melon Fund Ranking">
 
@@ -120,7 +120,7 @@ class App extends Component {
                     {
                         (this.state.showComparisonComponent)
                             ?
-                            <div className={'expand'} style={{ width: '500px' }}>
+                            <div className={'expand'} style={{  position: 'relative', width: '30%' , float:'left'}}>
                                 <div className={'spider-card'} style={{ width: '100%' }}>
 
                                     <Card className={"graph1-card"}>

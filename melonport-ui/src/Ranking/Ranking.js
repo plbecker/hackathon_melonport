@@ -83,12 +83,15 @@ class Ranking extends Component {
             setTimeout(() => {
                this.setState({hgt: '48px', pad: '20px'}) 
             }, ANIMATION_TIMEOUT);
+            setTimeout(function() { this.gridApi.sizeColumnsToFit();}.bind(this),400);
         }
         else {
             this.setState({hgt: '0px', pad: '0px'}) 
             if (rowCount == 2){
                 //do graph stuff
                 this.showComparisonComponent.showCompComp(true);
+                setTimeout(function() { this.gridApi.sizeColumnsToFit();}.bind(this),400);
+                
             }
         }
         //window.alert("selection changed, " + rowCount + " rows selected");
@@ -103,6 +106,7 @@ class Ranking extends Component {
         }
     }
 
+
     render() {
         return (
             <div>
@@ -114,7 +118,7 @@ class Ranking extends Component {
             <div  className="ag-theme-material"
             border='3'
             style={{ 
-                height: '900px', 
+                height: '866px', 
                 marginBottom: '-20px'
                 //margin: '0 auto'
             }}>
