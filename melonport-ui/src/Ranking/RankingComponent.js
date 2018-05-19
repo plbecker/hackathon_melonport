@@ -2,9 +2,9 @@ import React from 'react';
 
 import Ranking from './Ranking';
 
-let RankingComponent = ({ game, dispatch, translate, currentLanguage }) => (
+let RankingComponent = (showCompComp) => (
     <div>
-            <Ranking/>
+            <Ranking showCompComp={showCompComp}/>
     </div>
 );
 
