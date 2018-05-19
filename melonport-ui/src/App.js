@@ -106,7 +106,7 @@ class App extends Component {
                 <p>Start your own blockchain fund today</p>
                 <h3>GET STARTED</h3>
             </div>
-                <div style={{ marginLeft: '8%', marginRight: '8%', marginTop: '4%'   }}>
+                <div style={{ marginBottom:'2%', marginLeft: '8%', marginRight: '8%', marginTop: '4%'   }}>
                     <div style={{width : (this.state.showComparisonComponent) ? '65%' : '100%', float:'left' }}>
                         <Card className={"ranking-card"}>
                             <CardHeader title="Melon Fund Ranking">
