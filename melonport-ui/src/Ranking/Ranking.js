@@ -109,7 +109,7 @@ class Ranking extends Component {
             <div  className="ag-theme-material"
             border='3'
             style={{ 
-                height: '900px', 
+                height: '866px', 
                 marginBottom: '-20px'
                 //margin: '0 auto'
             }}>

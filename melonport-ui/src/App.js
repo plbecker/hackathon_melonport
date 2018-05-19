@@ -97,7 +97,7 @@ class App extends Component {
                 <p>Start your own blockchain fund today</p>
                 <h3>GET STARTED</h3>
             </div>
-            <div style={{marginLeft:'8%', marginRight:'8%', marginTop:'4%', display:'flex'}}>
+            <div style={{marginLeft:'8%', marginBottom:'2%', marginRight:'8%', marginTop:'4%', display:'flex'}}>
                 <div style={{flex:'1'}}>
                     <Card className={"ranking-card"}>
                         <CardHeader title="Melon Fund Ranking">
