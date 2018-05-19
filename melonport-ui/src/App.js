@@ -21,6 +21,7 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
 import MelonSpiderComponent from './MelonSpider/MelonSpiderComponent';
 import RankingComponent from './Ranking/RankingComponent';
+import PerformanceComponent from './Performance/PerformanceComponent';
 
 
 const styles = {
@@ -119,7 +120,9 @@ class App extends Component {
                                            <MelonSpiderComponent />
  
                                 </TabContainer>
-                              <TabContainer dir={theme.direction}>Item Two</TabContainer>
+                              <TabContainer dir={theme.direction}>
+                                    <PerformanceComponent /> 
+                            </TabContainer>
                             </SwipeableViews>
                               <Tabs
                                 value={this.state.value}
