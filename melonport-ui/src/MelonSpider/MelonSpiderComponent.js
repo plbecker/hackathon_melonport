@@ -66,13 +66,15 @@ class MelonSpiderComponent extends Component {
         var sum = 0;
         for (var i = 0; i < 6; i++) {
             var difference = (Math.abs(scores1[i] - scores2[i]));
-            sum += difference;
+            //sum += difference;
+            sum += difference * difference;
         }
-        const matchScore = sum / 6;
+        //const matchScore = sum / 6;
+        const matchScore = Math.sqrt(sum / 6);
 
         console.log(matchScore);
 
-        const maxDiffColor = 200;
+        const maxDiffColor = 240;
         const shadedRed = maxDiffColor * matchScore / 100;
         const shadedGreen = maxDiffColor * matchScore / 100;
         //const shadedBlue = maxDiffColor * matchScore / 100;

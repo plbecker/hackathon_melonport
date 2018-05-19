@@ -39,6 +39,9 @@ class PerformanceComponent extends Component {
             ]
         }
 
+        const color2alpha = "rgba(100,100,255,0.2)";
+        const color2 = "rgba(200,200,255,1)";
+
         var data = Object.assign({},baseData);
         data.datasets = [
             {
@@ -53,12 +56,12 @@ class PerformanceComponent extends Component {
 		},
 		{
 			label: "Fund2",
-			fillColor: "rgba(151,187,205,0.2)",
-			strokeColor: "rgba(151,187,205,1)",
-			pointColor: "rgba(151,187,205,1)",
+			fillColor: color2alpha,
+			strokeColor: color2,
+			pointColor: color2,
 			pointStrokeColor: "#fff",
 			pointHighlightFill: "#fff",
-			pointHighlightStroke: "rgba(151,187,205,1)",
+			pointHighlightStroke: color2,
 			data: [28, 48, 40, 19, 86, 27, 90]
 		}];
 
