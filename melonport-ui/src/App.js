@@ -107,7 +107,7 @@ class App extends Component {
                         </CardContent>
                     </Card>
                 </div>
-                <div style={{width:'400px'}}>
+                <div style={{width:'500px'}}>
                             <div className={'spider-card'} style={{width:'100%'}}>
                                 <AppBar position="static" color="primary">
                                     <SwipeableViews
