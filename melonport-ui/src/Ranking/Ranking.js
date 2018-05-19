@@ -83,6 +83,7 @@ class Ranking extends Component {
             setTimeout(() => {
                this.setState({hgt: '48px', pad: '20px'}) 
             }, ANIMATION_TIMEOUT);
+            setTimeout(function() { this.gridApi.sizeColumnsToFit();}.bind(this),400);
         }
         else {
             this.setState({hgt: '0px', pad: '0px'}) 
