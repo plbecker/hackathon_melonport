@@ -25,7 +25,7 @@ export default class GraphCellRenderer extends React.Component {
             <LineChart
                 data={data}
                 style={{position:'absolute'}}
-                width={115}
+                width={140}
                 height={40}
                 xAxis={{tickValue: null, outerTickSize: 0, tickPadding: 0, innerTickSize: 0, className: "xAxis", tickFormat: x => { return ''; },}}
                 yAxis={{outerTickSize: 0, tickPadding: 0, innerTickSize: 0, className: "yAxis", tickFormat: x => { return ''; },}}
