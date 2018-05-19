@@ -90,7 +90,7 @@ class App extends Component {
     render() {
         return (
         <MuiThemeProvider theme={theme}>
-            <div style={{margin:'10%', display:'flex'}}>
+            <div style={{margin:'8%', display:'flex'}}>
                 <div style={{flex:'1'}}>
                     <Card className={"ranking-card"}>
                         <CardHeader title="Melon Fund Ranking">

@@ -78,6 +78,7 @@ class Ranking extends Component {
     render() {
         return (
             <div  className="ag-theme-material"
+            border='3'
             style={{ 
                 height: '900px', 
                 marginBottom: '-20px'
@@ -88,6 +89,7 @@ class Ranking extends Component {
                     pagination={true}
                     enableSorting={true}
                     enableFilter={true}
+                    enableColResize={true}
                     enableColResizes={true}
                     rowSelection={this.state.rowSelection}
             //                rowMultiSelectWithClick={true}
@@ -101,9 +103,9 @@ class Ranking extends Component {
 
                     <AgGridColumn checkboxSelection  headerName="Rank" field="rank" valueFormatter={Ranking.rankFormatter}></AgGridColumn>
                     <AgGridColumn headerName="Fund Name" field="name"></AgGridColumn>
-                    <AgGridColumn headerName="Graph" suppressAutoSize suppressResize field="graph" enableValue cellRendererFramework={GraphCellRenderer}></AgGridColumn>
+                    <AgGridColumn headerName="Graph" suppressAutoSize field="graph" enableValue cellRendererFramework={GraphCellRenderer}></AgGridColumn>
                     <AgGridColumn headerName="Share Price" field="sharePrice" cellClass="number-cell" valueFormatter={Ranking.roundFormatter} ></AgGridColumn>
-                    <AgGridColumn headerName="Yearly Avg Performance"  suppressAutoSize suppressResize field="performance" enableValue cellRendererFramework={FundChartCellRenderer}></AgGridColumn>
+                    <AgGridColumn headerName="YTD Performance"  suppressAutoSize field="performance" enableValue cellRendererFramework={FundChartCellRenderer}></AgGridColumn>
                     <AgGridColumn headerName="Inception" field="inception" valueFormatter={Ranking.dateFormatter}></AgGridColumn>
                 </AgGridReact>
 
