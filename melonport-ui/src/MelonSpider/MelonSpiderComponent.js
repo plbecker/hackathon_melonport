@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import MelonSpider from './MelonSpider';
 
@@ -8,6 +8,7 @@ import spiderData1 from './spiderData1';
 import spiderData2 from './spiderData2';
 
 var chartOptions = {
+    // POSSIBLE OPTIONS
     //scaleShowLine : false,
     //angleShowLineOut : false,
     //scaleShowLabels : true, 
@@ -27,27 +28,49 @@ var chartOptions = {
     //legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].strokeColor%>\"><%if(datasets[i].label){%><%=datasets[i].label%><%}%></span></li><%}%></ul>"
 }
 
-var combinedSpiderData1 = {
-    "labels": spiderLabels,
-    "datasets": [
-        personalSpiderData,
-        spiderData1
-    ]
-}
 
-var combinedSpiderData2 = {
-    "labels": spiderLabels,
-    "datasets": [
-        spiderData1,
-        spiderData2
-    ]
-}
+class MelonSpiderComponent extends Component {
 
-let MelonSpiderComponent = () => (
-    <div>
-        {console.log(combinedSpiderData1)}
-        <MelonSpider data={combinedSpiderData2} chartOptions={chartOptions} />
-    </div>
-);
+    constructor(props) {
+        super(props);
+
+        const baseSpiderData = {
+            labels: spiderLabels,
+            datasets: [
+            ]
+        }
+
+        // TODO only use one spiderdataset here
+        // TODO give data from outside
+        /* TODO uncomment when props are ready
+        var combinedSpiderData = Object.assign({}, baseSpiderData);
+        combinedSpiderData.datasets = [
+            props.data1,
+            props.data2
+        ];
+        */
+
+        var combinedSpiderData1 = Object.assign({}, baseSpiderData);
+        combinedSpiderData1.datasets = [
+            personalSpiderData,
+            spiderData1
+        ];
+
+        var combinedSpiderData2 = Object.assign({}, baseSpiderData);
+        combinedSpiderData2.datasets = [
+            spiderData1,
+            spiderData2
+        ];
+
+        this.combinedSpiderData1 = combinedSpiderData1;
+        this.combinedSpiderData2 = combinedSpiderData2;
+    }
+
+    render() {
+        return <div>
+            <MelonSpider data={this.combinedSpiderData1} chartOptions={chartOptions} />
+        </div>
+    }
+}
 
 export default MelonSpiderComponent;

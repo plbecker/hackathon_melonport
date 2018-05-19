@@ -12,3 +12,11 @@ MelonSpider --> provide input what I care about and compare with funds ("Fund Ma
 ## Comparison
 **TODO what question we answer**
 Compare funds on share price / performance
+
+
+# Results
+
+## Melon Spider
+0 funds marked: show own spider
+1 fund marked: show own spider + fund1 spider
+2 funds marked: show fund1 + fund2 spider
