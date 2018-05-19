@@ -101,7 +101,7 @@ class Ranking extends Component {
     render() {
         return (
             <div>
-            <div className={'selectIndicator'} style={{transition: 'all 1s', width:'auto', height:this.state.hgt, paddingTop:this.state.pad, marginTop:'-15px', marginLeft:'-25px', marginRight:'-25px', backgroundColor:'#111'}}>
+            <div className={'selectIndicator'} style={{transition: 'ease-in-out 1s', width:'auto', height:this.state.hgt, paddingTop:this.state.pad, marginTop:'-15px', marginLeft:'-25px', marginRight:'-25px', backgroundColor:'#111'}}>
                 <Typography variant="title"  component='h3' color='primary' style={{marginLeft:'20px'}}>
                     Select two funds to compare them.
                  </Typography> 
