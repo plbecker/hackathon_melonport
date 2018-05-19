@@ -13,6 +13,8 @@ class Ranking extends Component {
     constructor(props) {
         super(props);
 
+        this.showComparisonComponent = props.showCompComp
+
         this.state = {
             onGridReady: function(params) {
                 params.api.sizeColumnsToFit();
@@ -73,8 +75,10 @@ class Ranking extends Component {
         //window.alert("row " + event.node.data.name + " selected = " + event.node.selected);
     }
     onSelectionChanged(event) {
+        //{console.log(this.showComparisonComponent)}
         var rowCount = event.api.getSelectedNodes().length;
-        if (rowCount < 2){
+        if (rowCount !== 2){
+            this.showComparisonComponent.showCompComp(false);
             const ANIMATION_TIMEOUT = 50;
             setTimeout(() => {
                this.setState({hgt: '48px', pad: '20px'}) 
@@ -84,6 +88,7 @@ class Ranking extends Component {
             this.setState({hgt: '0px', pad: '0px'}) 
             if (rowCount == 2){
                 //do graph stuff
+                this.showComparisonComponent.showCompComp(true);
             }
         }
         //window.alert("selection changed, " + rowCount + " rows selected");
