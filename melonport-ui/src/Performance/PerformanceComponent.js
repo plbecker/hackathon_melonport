@@ -29,13 +29,15 @@ class PerformanceComponent extends Component {
     constructor(props) {
         super(props);
 
+        let fund1 = 'Volkan Kara'
+        let fund2 = 'melonBot'
+
 
         const baseData = {
-            labels: ["January", "February", "March", "April", "May", "June", "July"],
+            labels: ["November", "December", "January", "February", "March", "April", "May" ],
             datasets: [
             ]
         }
-
 
         var data = Object.assign({},baseData);
         data.datasets = [
@@ -59,6 +61,16 @@ class PerformanceComponent extends Component {
 			pointHighlightStroke: "rgba(151,187,205,1)",
 			data: [28, 48, 40, 19, 86, 27, 90]
 		}];
+
+        var arr1 = []
+        var arr2 = []
+        for (var i=0; i<20; i++){
+            arr1.push(Math.random() * 35)
+            arr2.push(Math.random() * 35)
+        }
+
+        data.datasets[0].data = arr1
+        data.datasets[1].data = arr2
 
         this.data = data;
 

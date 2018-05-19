@@ -23,14 +23,18 @@ class MelonSpiderComponent extends Component {
         var scores2 = props.scores2;
         */
 
-        var scores1 = [65, 59, 90, 81, 56, 55];
-        var scores2 = [28, 48, 40, 19, 27, 94];
+        var arr1 = []
+        var arr2 = []
+        for (var i=0; i<6; i++){
+            arr1.push(Math.random() * 5)
+            arr2.push(Math.random() * 5)
+        }
         //var scores2 = [65, 59, 90, 81, 56, 55];
 
         // colors1 is fixed gray
         var colors1 = { red: 220, green: 220, blue: 220 };
         // colors2 are calculated from score
-        var colors2 = this.calculateColorsFromScores(scores1, scores2);
+        var colors2 = this.calculateColorsFromScores(arr1, arr2);
 
         var spiderData1 = {
             label: "Fund1",
@@ -40,7 +44,7 @@ class MelonSpiderComponent extends Component {
             pointStrokeColor: "#fff",
             pointHighlightFill: "#fff",
             pointHighlightStroke: this.normalColorString(colors1),
-            data: scores1
+            data: arr1
         }
 
         var spiderData2 = {
@@ -51,7 +55,7 @@ class MelonSpiderComponent extends Component {
             pointStrokeColor: "#fff",
             pointHighlightFill: "#fff",
             pointHighlightStroke: this.normalColorString(colors2),
-            data: scores2
+            data: arr2
         }
 
         var combinedSpiderData = {}
