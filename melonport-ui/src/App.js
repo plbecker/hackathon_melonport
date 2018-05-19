@@ -26,21 +26,21 @@ import PerformanceComponent from './Performance/PerformanceComponent';
 
 
 const styles = {
-  card: {
-    minWidth: 275,
-  },
-  bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)',
-  },
-  title: {
-    marginBottom: 16,
-    fontSize: 14,
-  },
-  pos: {
-    marginBottom: 12,
-  },
+    card: {
+        minWidth: 275,
+    },
+    bullet: {
+        display: 'inline-block',
+        margin: '0 2px',
+        transform: 'scale(0.8)',
+    },
+    title: {
+        marginBottom: 16,
+        fontSize: 14,
+    },
+    pos: {
+        marginBottom: 12,
+    },
 };
 
 const font = 'Crimson Text';
@@ -51,34 +51,38 @@ const theme = createMuiTheme({
     },
     palette: {
         primary: {
-          main: '#fff',
+            main: '#fff',
         },
         secondary: {
             main: '#222',
         },
-  },
+    },
 });
 
 function TabContainer({ children, dir }) {
-  return (
-    <Typography component="div" dir={dir} style={{ padding: 8 * 3 }}>
-      {children}
-    </Typography>
-  );
+    return (
+        <Typography component="div" dir={dir} style={{ padding: 8 * 3 }}>
+            {children}
+        </Typography>
+    );
 }
 
 TabContainer.propTypes = {
-  children: PropTypes.node.isRequired,
-  dir: PropTypes.string.isRequired,
+    children: PropTypes.node.isRequired,
+    dir: PropTypes.string.isRequired,
 };
 
 class App extends Component {
     constructor(props) {
         super(props);
-
     }
+
+    componentDidMount = () => {
+    }
+
     state = {
         value: 0,
+        showComparisonComponent: false
     };
 
     handleChange = (event, value) => {
@@ -89,55 +93,65 @@ class App extends Component {
         this.setState({ value: index });
     };
 
+    handleShowComparisonComponent =(show) => {
+        this.setState({ showComparisonComponent: show });
+        this.componentDidMount();
+    }
+
     render() {
         return (
-        <MuiThemeProvider theme={theme}>
-            <img className={'logo'} src={logo}/>
-            <div className={'headerText'}>
-                <p>Start your own blockchain fund today</p>
-                <h3>GET STARTED</h3>
-            </div>
-            <div style={{marginLeft:'8%', marginRight:'8%', marginTop:'4%', display:'flex'}}>
-                <div style={{flex:'1'}}>
-                    <Card className={"ranking-card"}>
-                        <CardHeader title="Melon Fund Ranking">
-
-            </CardHeader>
-                        <CardContent>
-                            <RankingComponent />
-                        </CardContent>
-                    </Card>
+            <MuiThemeProvider theme={theme}>
+                <img className={'logo'} src={logo} />
+                <div className={'headerText'}>
+                    <p>Start your own blockchain fund today</p>
+                    <h3>GET STARTED</h3>
                 </div>
-                <div className={'expand'} style={{width:'500px'}}>
-                            <div className={'spider-card'} style={{width:'100%'}}>
+                <div style={{ marginLeft: '8%', marginRight: '8%', marginTop: '4%', display: 'flex' }}>
+                    <div style={{ flex: '1' }}>
+                        <Card className={"ranking-card"}>
+                            <CardHeader title="Melon Fund Ranking">
 
-                                        <Card className={"graph1-card"}>
-                                            <CardHeader title="Investment Strategy">
-                                            </CardHeader>
-                                            <CardContent>
-                                               <MelonSpiderComponent />
-                                            </CardContent>
-                                        </Card>
+                            </CardHeader>
+                            <CardContent>
+                                <RankingComponent showCompComp={this.handleShowComparisonComponent} />
+                            </CardContent>
+                        </Card>
+                    </div>
+                    {
+                        (this.state.showComparisonComponent)
+                            ?
+                            <div className={'expand'} style={{ width: '500px' }}>
+                                <div className={'spider-card'} style={{ width: '100%' }}>
+
+                                    <Card className={"graph1-card"}>
+                                        <CardHeader title="Investment Strategy">
+                                        </CardHeader>
+                                        <CardContent>
+                                            <MelonSpiderComponent />
+                                        </CardContent>
+                                    </Card>
+                                </div>
+                                <div className={'performance-card'} style={{ width: '100%' }}>
+                                    <Card className={"graph1-card"}>
+                                        <CardHeader title="Fund Performance">
+                                        </CardHeader>
+                                        <CardContent>
+                                            <PerformanceComponent />
+                                        </CardContent>
+                                    </Card>
+                                </div>
                             </div>
-                            <div className={'performance-card'} style={{width:'100%'}}>
-                                        <Card className={"graph1-card"}>
-                                            <CardHeader title="Fund Performance">
-                                            </CardHeader>
-                                            <CardContent>
-                                            <PerformanceComponent /> 
-                                            </CardContent>
-                                        </Card>
-                            </div>
+                            : null
+                    }
                 </div>
-            </div>
-        </MuiThemeProvider>
+            </MuiThemeProvider>
         );
     }
 }
 
 App.propTypes = {
-  classes: PropTypes.object.isRequired,
-  theme: PropTypes.object.isRequired,
+    classes: PropTypes.object.isRequired,
+    theme: PropTypes.object.isRequired,
 };
 
 export default App;
